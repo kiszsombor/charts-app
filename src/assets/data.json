@@ -1,0 +1,10 @@
+[
+	{"Power":0.0,"Rpm":0.0,"Vibration":0.038,"Voltage":0.2,"TimeMs":513},
+	{"Power":0.36,"Rpm":390.0,"Vibration":0.026,"Voltage":9.8,"TimeMs":1016},
+	{"Power":0.59,"Rpm":390.0,"Vibration":0.01,"Voltage":9.8,"TimeMs":1525},
+	{"Power":0.84,"Rpm":1275.0,"Vibration":0.056,"Voltage":9.8,"TimeMs":2034},
+	{"Power":0.68,"Rpm":1275.0,"Vibration":0.038,"Voltage":9.8,"TimeMs":2547},
+	{"Power":0.67,"Rpm":1620.0,"Vibration":0.038,"Voltage":9.8,	"TimeMs":3055},
+	{"Power":0.67,"Rpm":1620.0,"Vibration":0.032,"Voltage":9.8,	"TimeMs":3566},
+	{"Power":0.67,"Rpm":1620.0, "Vibration":0.038,"Voltage":9.8,"TimeMs":4075}
+]

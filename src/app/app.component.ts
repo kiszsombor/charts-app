@@ -1,10 +1,59 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from "@angular/core";
+
+import {
+  ChartComponent,
+  ApexAxisChartSeries,
+  ApexChart,
+  ApexXAxis,
+  ApexTitleSubtitle
+} from "ng-apexcharts";
+
+export type ChartOptions = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  xaxis: ApexXAxis;
+  title: ApexTitleSubtitle;
+};
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"]
 })
-export class AppComponent {
-  title = 'charts-app';
+export class AppComponent implements OnInit {
+  @ViewChild("chart")
+  chart!: ChartComponent;
+
+  public chartOptions: Partial<ChartOptions> | any;
+
+  productsArray: any;
+
+  constructor() {
+    this.chartOptions = {
+      series: [
+        {
+          name: "My-series",
+          data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+        }
+      ],
+      chart: {
+        height: 350,
+        type: "bar"
+      },
+      title: {
+        text: "My First Angular Chart"
+      },
+      xaxis: {
+        categories: ["Jan", "Feb",  "Mar",  "Apr",  "May",  "Jun",  "Jul",  "Aug", "Sep"]
+      }
+    }; 
+  }
+
+  ngOnInit(): void {
+    fetch('./assets/data.json').then(res => res.json())
+    .then(jsonData => {
+      this.productsArray = jsonData;
+      // console.log(this.productsArray[0].TimeMs);
+    });
+  }
 }
