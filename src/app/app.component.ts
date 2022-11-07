@@ -94,6 +94,39 @@ export class AppComponent implements OnInit {
         type: "line",
         stacked: false
       },
+      annotations: { // TODO: NOT WORKING
+        xaxis: [
+          {
+            x: arrTime[2],
+            strokeDashArray: 0,
+            borderColor: "#775DD0",
+            label: {
+              borderColor: "#775DD0",
+              style: {
+                color: "#fff",
+                background: "#775DD0"
+              },
+              text: "Anno Test"
+            }
+          },
+          {
+            x: arrTime[3],
+            x2: arrTime[4],
+            fillColor: "#B3F7CA",
+            opacity: 0.4,
+            label: {
+              borderColor: "#B3F7CA",
+              style: {
+                fontSize: "10px",
+                color: "#fff",
+                background: "#00E396"
+              },
+              offsetY: -10,
+              text: "X-axis range"
+            }
+          }
+        ],
+      },
       dataLabels: {
         enabled: false
       },
@@ -135,7 +168,7 @@ export class AppComponent implements OnInit {
           },
           tooltip: {
             enabled: true
-          }
+          },
         },
         {
           seriesName: "Rpm",
@@ -187,17 +220,17 @@ export class AppComponent implements OnInit {
           },
           axisBorder: {
             show: true,
-            color: "#ff4560"
+            color: "#FF4560"
           },
           labels: {
             style: {
-              color: "#ff4560"
+              color: "#FF4560"
             }
           },
           title: {
             text: "Voltage",
             style: {
-              color: "#ff4560"
+              color: "#FF4560"
             }
           },
           tooltip: {
@@ -217,7 +250,7 @@ export class AppComponent implements OnInit {
         horizontalAlign: "left",
         offsetX: 40,
         markers: {
-          fillColors: ["#00E396", "#775DD0"]
+          fillColors: ["#008FFB", "#00E396", "#FEB019", "#FF4560"]
         }
       }
     };
