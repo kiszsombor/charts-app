@@ -10,13 +10,15 @@ import {
   ApexLegend,
   ApexDataLabels,
   ApexTitleSubtitle,
-  ApexYAxis
+  ApexYAxis,
+  ApexAnnotations
 } from "ng-apexcharts";
 
 import { Data } from "./data";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
+  annotations: ApexAnnotations;
   chart: ApexChart;
   xaxis: ApexXAxis;
   markers: any; //ApexMarkers;
@@ -94,10 +96,10 @@ export class AppComponent implements OnInit {
         type: "line",
         stacked: false
       },
-      annotations: { // TODO: NOT WORKING
+      annotations: {
         xaxis: [
           {
-            x: arrTime[2],
+            x: 100,
             strokeDashArray: 0,
             borderColor: "#775DD0",
             label: {
@@ -110,8 +112,8 @@ export class AppComponent implements OnInit {
             }
           },
           {
-            x: arrTime[3],
-            x2: arrTime[4],
+            x: arrTime[0],
+            x2: arrTime[1],
             fillColor: "#B3F7CA",
             opacity: 0.4,
             label: {
@@ -126,13 +128,51 @@ export class AppComponent implements OnInit {
             }
           }
         ],
+        yaxis: [
+          {
+            y: 0.8,
+            borderColor: "#775DD0",
+            label: {
+              borderColor: "#775DD0",
+              style: {
+                color: "#fff",
+                background: "#775DD0"
+              },
+              text: "Support"
+            }
+          },
+          {
+            y: 0.44,
+            y2: 0.68,
+            borderColor: "#000",
+            fillColor: "#FEB019",
+            opacity: 0.2,
+            label: {
+              borderColor: "#333",
+              style: {
+                fontSize: "10px",
+                color: "#333",
+                background: "#FEB019"
+              },
+              text: "Y-axis range"
+            }
+          }
+        ],
       },
       dataLabels: {
         enabled: false
       },
       stroke: {
-        width: [4, 4, 4, 4]
+        // width: [4, 4, 4, 4]
+        curve: "straight"
       },
+      /*
+      grid: {
+        padding: {
+          right: 30,
+          left: 20
+        }
+      },*/
       title: {
         text: "Time ms",
         align: "left",
@@ -254,5 +294,7 @@ export class AppComponent implements OnInit {
         }
       }
     };
+
+    // console.log(this.chartOptions.annotations);
   }
 }
